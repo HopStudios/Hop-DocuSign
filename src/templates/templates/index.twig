@@ -1,0 +1,104 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * Hop DocuSign plugin for Craft CMS 3.x
+ *
+ * Hop DocuSign index.twig
+ *
+ * @author    Hop Studios
+ * @copyright Copyright (c) 2020 Hop Studios
+ * @link      https://www.hopstudios.com
+ * @package   HopDocusign
+ * @since     1.0.0
+ */
+#}
+
+{% extends "_layouts/cp" %}
+
+{% do view.registerAssetBundle("hopstudios\\hopdocusign\\assetbundles\\hopdocusign\\HopDocusignAsset") %}
+{% do view.registerAssetBundle("hopstudios\\hopdocusign\\assetbundles\\indexcpsection\\IndexCPSectionAsset") %}
+
+{% set docsUrl = "https://github.com/HopStudios/hop-docusign/blob/master/README.md" %}
+
+{% set title = "Hop DocuSign Templates" %}
+
+{% set pluginCpUrl = url('hop-docusign') %}
+
+{% set iconUrl = view.getAssetManager().getPublishedUrl('@hopstudios/hopdocusign/assetbundles/indexcpsection/dist', true) ~ '/img/Index-icon.svg' %}
+
+{% block actionButton %}
+    <a class="btn submit add icon" href="{{ url('hop-docusign/templates/new/') }}">
+        {{ "New Template"|t('hop-docusign') }}
+    </a>
+{% endblock %}
+
+{% set content %}
+    <div id="notemplates"{% if templates %} class="hidden"{% endif %}>
+        <p>{{ "No templates found"|t('hop-docusign') }}</p>
+    </div>
+
+    {% if templates|length %}
+        <table id="templates" class="data fullwidth collapsible">
+            <thead>
+                <th scope="col">{{ "ID"|t('hop-docusign') }}</th>
+                <th scope="col">{{ "Form Handle"|t('hop-docusign') }}</th>
+                <th scope="col">{{ "Email Handle"|t('hop-docusign') }}</th>
+                <th scope="col">{{ "Recipient Name"|t('hop-docusign') }}</th>
+                <th scope="col">{{ "Email Subject"|t('hop-docusign') }}</th>
+                <th scope="col">{{ "Template Role"|t('hop-docusign') }}</th>
+                <th scope="col">{{ "Template ID"|t('hop-docusign') }}</th>
+                <td class="thin"></td>
+            </thead>
+            <tbody>
+            {% for template in templates %}
+                <tr data-id="{{ template.id }}" data-name="{{ template.form_handle|t('hop-docusign') }}">
+                    <th scope="row" data-title="{{ 'ID'|t('hop-docusign') }}">
+                        {{ template.id }}
+                    </th>
+                    <th scope="row" data-title="{{ 'Form Handle'|t('hop-docusign') }}">
+                        <a href="{{ url('hop-docusign/templates/' ~ template.id) }}">
+                            {{ template.form_handle }}
+                        </a>
+                    </th>
+                    <th scope="row" data-title="{{ 'Email Handle'|t('hop-docusign') }}">
+                        {{ template.email_handle }}
+                    </th>
+                    <th scope="row" data-title="{{ 'Recipient Name'|t('hop-docusign') }}">
+                        {{ template.recipient_name }}
+                    </th>
+                    <th scope="row" data-title="{{ 'Email Subject'|t('hop-docusign') }}">
+                        {{ template.email_subject }}
+                    </th>
+                    <th scope="row" data-title="{{ 'Template Role'|t('hop-docusign') }}">
+                        {{ template.template_role }}
+                    </th>
+                    <th scope="row" data-title="{{ 'Template ID'|t('hop-docusign') }}">
+                        {{ template.template_id }}
+                    </th>
+                    <td class="thin">
+                        <div class="action-buttons">
+                            <a class="delete icon" title="{{ 'Delete'|t('hop-docusign') }}" role="button"></a>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+{% endset %}
+
+{% js %}
+    var adminTable = new Craft.AdminTable({
+        tableSelector: '#templates',
+        noObjectsSelector: '#notemplates',
+        newObjectBtnSelector: '#newformcontainer',
+        deleteAction: 'hop-docusign/templates/delete',
+        confirmDeleteMessage: '{{ "Are you sure you want to delete this template?"|t('hop-docusign') }}'
+    });
+
+    $("a.clone.icon").click(function() {
+        $(this).parents("form:first").submit();
+
+        return false;
+    });
+{% endjs %}

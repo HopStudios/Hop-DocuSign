@@ -1,0 +1,87 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * Hop DocuSign plugin for Craft CMS 3.x
+ *
+ * Hop DocuSign index.twig
+ *
+ * @author    Hop Studios
+ * @copyright Copyright (c) 2020 Hop Studios
+ * @link      https://www.hopstudios.com
+ * @package   HopDocusign
+ * @since     1.0.0
+ */
+#}
+
+{% extends "_layouts/cp" %}
+{% import "_includes/forms" as forms %}
+
+{% set isNewTemplate = (not template.id) %}
+
+{% if isNewTemplate %}
+    {% set title = "Setup a new template" | t('hop-docusign') %}
+{% else %}
+    {% set title = template.form_handle %}
+{% endif %}
+
+{# This puts the save button #}
+{% set fullPageForm = true %}
+
+{% set content %}
+
+    {{ actionInput('hop-docusign/templates/save-template') }}
+    {{ redirectInput("hop-docusign/templates") }}
+
+    {{ forms.hidden({
+        id: 'id',
+        name: 'id',
+        value: template.id ? template.id : null })
+    }}
+
+    {{ forms.textField({
+        label: 'Form Handle',
+        instructions: 'This has to match your freeform form handle for the extension to work',
+        id: 'form_handle',
+        name: 'form_handle',
+        value: template.form_handle})
+    }}
+
+    {{ forms.textField({
+        label: 'Email Handle',
+        instructions: 'This is the email field handle from freeform',
+        id: 'email_handle',
+        name: 'email_handle',
+        value: template.email_handle})
+    }}
+
+    {{ forms.textField({
+        label: 'Recipient Name',
+        instructions: 'Use freeform field handles to build the title of the recipient. Example: {firstName} {lastName}',
+        id: 'recipient_name',
+        name: 'recipient_name',
+        value: template.recipient_name})
+    }}
+
+    {{ forms.textField({
+        label: 'Email Subject',
+        instructions: 'This is the email subject for the docusign signature request',
+        id: 'email_subject',
+        name: 'email_subject',
+        value: template.email_subject})
+    }}
+
+    {{ forms.textField({
+        label: 'DocuSign Template Role',
+        id: 'template_role',
+        name: 'template_role',
+        value: template.template_role})
+    }}
+
+    {{ forms.textField({
+        label: 'DocuSign Template ID',
+        id: 'template_id',
+        name: 'template_id',
+        value: template.template_id})
+    }}
+
+{% endset %}

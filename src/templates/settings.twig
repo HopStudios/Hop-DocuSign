@@ -1,0 +1,64 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * Hop DocuSign plugin for Craft CMS 3.x
+ *
+ * Hop DocuSign Settings.twig
+ *
+ * @author    Hop Studios
+ * @copyright Copyright (c) 2020 Hop Studios
+ * @link      https://www.hopstudios.com
+ * @package   HopDocusign
+ * @since     1.0.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{% do view.registerAssetBundle("hopstudios\\hopdocusign\\assetbundles\\hopdocusign\\HopDocusignAsset") %}
+
+{{ forms.lightswitchField({
+    label: 'Live / Sandbox',
+    instructions: 'Is this live?',
+    id: 'live',
+    name: 'live',
+    value: settings.live,
+    on: (settings.live is defined) ? settings.live : ""})
+}}
+
+{{ forms.textField({
+    label: 'Live DocuSign User Email',
+    id: 'live_docusign_user',
+    name: 'live_docusign_user',
+    value: settings.live_docusign_user})
+}}
+
+{{ forms.textField({
+    label: 'Live DocuSign User Password',
+    type: 'password',
+    id: 'live_docusign_pass',
+    name: 'live_docusign_pass',
+    value: settings.live_docusign_pass})
+}}
+
+{{ forms.textField({
+    label: 'Sandbox DocuSign User Email',
+    id: 'sandbox_docusign_user',
+    name: 'sandbox_docusign_user',
+    value: settings.sandbox_docusign_user})
+}}
+
+{{ forms.textField({
+    label: 'Sandbox DocuSign User Password',
+    type: 'password',
+    id: 'sandbox_docusign_pass',
+    name: 'sandbox_docusign_pass',
+    value: settings.sandbox_docusign_pass})
+}}
+
+{{ forms.textField({
+    label: 'DocuSign Integrator Key',
+    id: 'integrator_key',
+    name: 'integrator_key',
+    value: settings.integrator_key})
+}}
