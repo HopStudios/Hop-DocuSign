@@ -115,7 +115,7 @@ class HopDocusign extends Plugin
             SubmissionsService::EVENT_AFTER_SUBMIT,
             function (SubmitEvent $event) {
                 // Setting the docusign configurations
-                if ($this->settings->live) {
+                if ($this->settings->is_live) {
                     $docusign_user = $this->settings->live_docusign_user;
                     $docusign_pass = $this->settings->live_docusign_pass;
                     $docusign_host = 'https://www.docusign.net/restapi';

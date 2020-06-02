@@ -15,16 +15,11 @@
 
 {% extends "_layouts/cp" %}
 
-{% do view.registerAssetBundle("hopstudios\\hopdocusign\\assetbundles\\hopdocusign\\HopDocusignAsset") %}
-{% do view.registerAssetBundle("hopstudios\\hopdocusign\\assetbundles\\indexcpsection\\IndexCPSectionAsset") %}
-
-{% set docsUrl = "https://github.com/HopStudios/hop-docusign/blob/master/README.md" %}
+{% set docsUrl = "https://github.com/HopStudios/Hop-DocuSign/blob/master/README.md" %}
 
 {% set title = "Hop DocuSign Templates" %}
 
 {% set pluginCpUrl = url('hop-docusign') %}
-
-{% set iconUrl = view.getAssetManager().getPublishedUrl('@hopstudios/hopdocusign/assetbundles/indexcpsection/dist', true) ~ '/img/Index-icon.svg' %}
 
 {% block actionButton %}
     <a class="btn submit add icon" href="{{ url('hop-docusign/templates/new/') }}">
