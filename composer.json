@@ -11,8 +11,8 @@
         "hop docusign"
     ],
     "support": {
-        "docs": "https://github.com/HopStudios/hop-docusign/blob/master/README.md",
-        "issues": "https://github.com/HopStudios/hop-docusign/issues"
+        "docs": "https://github.com/HopStudios/Hop-Docusign/blob/master/README.md",
+        "issues": "https://github.com/HopStudios/Hop-Docusign/issues"
     },
     "license": "MIT",
     "authors": [
@@ -39,8 +39,8 @@
         "handle": "hop-docusign",
         "developer": "Hop Studios",
         "developerUrl": "https://www.hopstudios.com",
-        "documentationUrl": "https://github.com/HopStudios/hop-docusign/blob/master/README.md",
-        "changelogUrl": "https://raw.githubusercontent.com/HopStudios/hop-docusign/master/CHANGELOG.md",
+        "documentationUrl": "https://github.com/HopStudios/Hop-Docusign/blob/master/README.md",
+        "changelogUrl": "https://raw.githubusercontent.com/HopStudios/Hop-Docusign/master/CHANGELOG.md",
         "components": {
             "hopDocusignService": "hopstudios\\hopdocusign\\services\\HopDocusignService"
         },

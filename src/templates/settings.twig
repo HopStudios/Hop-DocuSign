@@ -15,15 +15,13 @@
 
 {% import "_includes/forms" as forms %}
 
-{% do view.registerAssetBundle("hopstudios\\hopdocusign\\assetbundles\\hopdocusign\\HopDocusignAsset") %}
-
 {{ forms.lightswitchField({
     label: 'Live / Sandbox',
     instructions: 'Is this live?',
-    id: 'live',
-    name: 'live',
-    value: settings.live,
-    on: (settings.live is defined) ? settings.live : ""})
+    id: 'is_live',
+    name: 'is_live',
+    value: settings.is_live,
+    on: (settings.is_live is defined) ? settings.is_live : ""})
 }}
 
 {{ forms.textField({

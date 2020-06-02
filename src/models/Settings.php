@@ -28,7 +28,7 @@ class Settings extends Model
     /**
      * @var string
      */
-    public $live = false;
+    public $is_live = false;
     public $live_docusign_user = '';
     public $live_docusign_pass = '';
     public $sandbox_docusign_user = '';
@@ -44,8 +44,8 @@ class Settings extends Model
     public function rules()
     {
         return [
-            ['live', 'boolean'],
-            ['live', 'default', 'value' => false],
+            ['is_live', 'boolean'],
+            ['is_live', 'default', 'value' => false],
         ];
     }
 }
