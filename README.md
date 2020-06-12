@@ -2,7 +2,7 @@
 
 Integrates DocuSign functionalities into your freeform forms.
 
-![Screenshot](resources/img/plugin-logo.png)
+![Screenshot](resources/img/Hop-DocuSign.png)
 
 ## Requirements
 

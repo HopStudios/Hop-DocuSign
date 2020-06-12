@@ -113,6 +113,42 @@ class TemplatesService extends Component
     }
 
     /**
+     * @param int $templateId
+     *
+     * @return bool
+     * @throws \Exception
+     */
+    public function deleteById($templateId)
+    {
+        $record = $this->getTemplateById($templateId);
+
+        if (!$record) {
+            return false;
+        }
+
+        $transaction = \Craft::$app->getDb()->getTransaction() ?? \Craft::$app->getDb()->beginTransaction();
+        try {
+            $affectedRows = \Craft::$app
+                ->getDb()
+                ->createCommand()
+                ->delete(TemplateRecord::tableName(), ['id' => $templateId])
+                ->execute();
+
+            if ($transaction !== null) {
+                $transaction->commit();
+            }
+
+            return (bool) $affectedRows;
+        } catch (\Exception $exception) {
+            if ($transaction !== null) {
+                $transaction->rollBack();
+            }
+
+            throw $exception;
+        }
+    }
+
+    /**
      * @return Query
      */
     private function getTemplateQuery(): Query

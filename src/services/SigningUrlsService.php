@@ -38,6 +38,19 @@ class SigningUrlsService extends Component
         return new SigningUrlModel($signing_url);
     }
 
+    /*
+     * @return bool
+     */
+    public function deleteOldSigningUrls()
+    {
+        $signingUrlRecord = new SigningUrlRecord;
+
+        // Using ActiveRecord to delete the signing urls
+        $signingUrlRecord::deleteAll('dateCreated < DATE_SUB(CURDATE(), INTERVAL 1 DAY)');
+
+        return true;
+    }
+
     public function saveSigningUrl(SigningUrlModel $signing_url)
     {
         $record = SigningUrlRecord::create();
