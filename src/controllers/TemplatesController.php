@@ -16,6 +16,7 @@ use hopstudios\hopdocusign\models\TemplateModel;
 
 use Craft;
 use craft\web\Controller;
+use craft\web\Response as Response;
 
 /**
  * @author    Hop Studios
@@ -80,6 +81,24 @@ class TemplatesController extends Controller
             'hop-docusign/templates/edit',
             [
                 'template' => $template
+            ]
+        );
+    }
+
+    /**
+     * Deletes a template
+     *
+     * @return Response
+     */
+    public function actionDelete(): Response
+    {
+        $this->requirePostRequest();
+
+        $templateId = \Craft::$app->request->post('id');
+
+        return $this->asJson(
+            [
+                'success' => $this->getTemplatesService()->deleteById($templateId),
             ]
         );
     }
