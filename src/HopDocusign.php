@@ -106,8 +106,10 @@ class HopDocusign extends Plugin
                 $signingUrlsService->deleteOldSigningUrls();
 
                 $signing_url = $signingUrlsService->getSigningUrlByToken($token)->signing_url;
-                
-                $event->setReturnUrl($signing_url);
+
+                if (!empty($signing_url)) {
+                    $event->setReturnUrl($signing_url);
+                }
 
                 return true;
             }
