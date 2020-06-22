@@ -18,7 +18,7 @@ This plugin requires Craft CMS 3.0.0-beta.23 or later.
 
 To install the plugin, follow these instructions.
 
-1. Buy the plugin [https://plugins.craftcms.com/hop-docusign](https://plugins.craftcms.com/hop-docusign) from the Plugin Store
+1. Buy the plugin from the Plugin Store: [https://plugins.craftcms.com/hop-docusign](https://plugins.craftcms.com/hop-docusign)
 
 2. In the Control Panel, go to Settings → Plugins and click the “Install” button for Hop DocuSign.
 
