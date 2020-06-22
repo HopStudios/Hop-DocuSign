@@ -8,7 +8,7 @@ Integrates DocuSign functionalities into your freeform forms.
 
 Hop DocuSign is an extension to enable a seamless DocuSign signing experience for your customers. Currently we only support Freeform form submissions but we're planning to add  support to other form services! Drop us a note if you'd like us to add support to your plugins at tech@hopstudios.com.
 
-### Check out our demo site! [https://hopdocusign.hopstudios.com] (https://hopdocusign.hopstudios.com)
+### Check out our demo site! [https://hopdocusign.hopstudios.com](https://hopdocusign.hopstudios.com)
 
 ## Requirements
 
@@ -18,7 +18,7 @@ This plugin requires Craft CMS 3.0.0-beta.23 or later.
 
 To install the plugin, follow these instructions.
 
-1. Buy [me](https://plugins.craftcms.com/hop-docusign) from the Plugin Store
+1. Buy the plugin [https://plugins.craftcms.com/hop-docusign](https://plugins.craftcms.com/hop-docusign) from the Plugin Store
 
 2. In the Control Panel, go to Settings → Plugins and click the “Install” button for Hop DocuSign.
 
