@@ -37,7 +37,7 @@ use yii\base\Event;
  *
  * @author    Hop Studios
  * @package   HopDocusign
- * @since     1.0.0
+ * @since     1.0.3
  *
  * @property  HopDocusignServiceService $hopDocusignService
  */
@@ -57,7 +57,7 @@ class HopDocusign extends Plugin
     /**
      * @var string
      */
-    public $schemaVersion = '1.0.0';
+    public $schemaVersion = '1.0.3';
 
     /**
      * @var bool
@@ -162,26 +162,6 @@ class HopDocusign extends Plugin
 
                 $fields = $form->getLayout()->getFields();
 
-                // // Iterate over all posted fields and get their values
-                // foreach ($fields as $field) {
-
-                //     // Bypass fields such as HTML or Submit, etc.
-                //     if ($field instanceof NoStorageInterface) {
-                //         continue;
-                //     }
-
-                //     // $field->getValue();
-                //     echo '<pre>';
-                //     print_r($field->getType());
-                //     echo '</pre>';
-                //     echo '<pre>';
-                //     print_r($field->getHandle());
-                //     echo '</pre>';
-                //     echo '<pre>';
-                //     var_dump($field->getValue());
-                //     echo '</pre>';
-                // }
-
                 require_once('Library/docusign/esign-client/autoload.php');
 
                 // Let the magic begin...
@@ -254,8 +234,9 @@ class HopDocusign extends Plugin
                                     'radioGroupTabs' => array()
                                 );
 
-                                // We're going to loop through the fields now. Some of them may be used to build the recipient name
+                                // We're going to loop through the fields now. Some of them may be used to build the recipient name or subject line
                                 $template_role_name = $template->recipient_name;
+                                $subject_line = $template->email_subject;
 
                                 // Assigning fields into their 'tab', we're only using 4 types of field here so 4 tabs
                                 foreach ($fields as $field) {
@@ -284,6 +265,7 @@ class HopDocusign extends Plugin
 
                                             // Replace if key is used to build the recipient name
                                             $template_role_name = str_replace('{' . $key . '}', $value, $template_role_name);
+                                            $subject_line = str_replace('{' . $key . '}', $value, $subject_line);
                                             break;
                                         case 'checkbox':
                                             $checkboxTab = new \DocuSign\eSign\Model\Checkbox();
@@ -323,7 +305,11 @@ class HopDocusign extends Plugin
 
                                 // Instantiate a new envelope object and configure settings
                                 $envelop_definition = new \DocuSign\eSign\Model\EnvelopeDefinition();
-                                $envelop_definition->setEmailSubject($template->email_subject . $clientUserId);
+
+                                if (strpos($subject_line, '{clientUserId}')) {
+                                    $subject_line = str_replace('{clientUserId}', $clientUserId, $subject_line);
+                                }
+                                $envelop_definition->setEmailSubject($subject_line);
 
                                 // Set which template to create and which role is signing
                                 $envelop_definition->setTemplateId($template->template_id);

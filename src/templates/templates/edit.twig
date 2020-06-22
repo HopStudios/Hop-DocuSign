@@ -9,7 +9,7 @@
  * @copyright Copyright (c) 2020 Hop Studios
  * @link      https://www.hopstudios.com
  * @package   HopDocusign
- * @since     1.0.0
+ * @since     1.0.3
  */
 #}
 
@@ -40,7 +40,7 @@
 
     {{ forms.textField({
         label: 'Form Handle',
-        instructions: 'This has to match your freeform form handle for the extension to work',
+        instructions: 'Enter the freeform form handle to be linked',
         id: 'form_handle',
         name: 'form_handle',
         value: template.form_handle})
@@ -48,7 +48,7 @@
 
     {{ forms.textField({
         label: 'Email Handle',
-        instructions: 'This is the email field handle from freeform',
+        instructions: 'Enter the freeform field handle for the signer\'s email',
         id: 'email_handle',
         name: 'email_handle',
         value: template.email_handle})
@@ -56,7 +56,7 @@
 
     {{ forms.textField({
         label: 'Recipient Name',
-        instructions: 'Use freeform field handles to build the title of the recipient. Example: {firstName} {lastName}',
+        instructions: 'Freeform text field handles allowed<br>Example: <strong>{firstName} {lastName}</strong>',
         id: 'recipient_name',
         name: 'recipient_name',
         value: template.recipient_name})
@@ -64,7 +64,7 @@
 
     {{ forms.textField({
         label: 'Email Subject',
-        instructions: 'This is the email subject for the docusign signature request',
+        instructions: 'Freeform text field handles allowed with the addition of {clientUserId}, which is a randomized string to prompt the dynamic signing process<br>Example: <strong>New Submission from {firstName} {lastName} {clientUserId}</strong>',
         id: 'email_subject',
         name: 'email_subject',
         value: template.email_subject})

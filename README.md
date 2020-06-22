@@ -4,6 +4,12 @@ Integrates DocuSign functionalities into your freeform forms.
 
 ![Screenshot](resources/img/Hop-DocuSign.png)
 
+## Hop DocuSign Overview
+
+Hop DocuSign is an extension to enable a seamless DocuSign signing experience for your customers. Currently we only support Freeform form submissions but we're planning to add  support to other form services! Drop us a note if you'd like us to add support to your plugins at tech@hopstudios.com.
+
+### [Check out our demo site!](https://hopdocusign.hopstudios.com)
+
 ## Requirements
 
 This plugin requires Craft CMS 3.0.0-beta.23 or later.
@@ -12,29 +18,27 @@ This plugin requires Craft CMS 3.0.0-beta.23 or later.
 
 To install the plugin, follow these instructions.
 
-1. Open your terminal and go to your Craft project:
+1. Buy [me](https://plugins.craftcms.com/hop-docusign) from the Plugin Store
 
-        cd /path/to/project
-
-2. Then tell Composer to load the plugin:
-
-        composer require HopStudios/hop-docusign
-
-3. In the Control Panel, go to Settings → Plugins and click the “Install” button for Hop DocuSign.
-
-## Hop DocuSign Overview
-
-Hop DocuSign is an extension to allow a seamless digital signing experience. Currently we only support Freeform form submissions but we're planning to add more support to other form services! Drop us a note if you'd like us to add support to your plugins at tech@hopstudios.com.
+2. In the Control Panel, go to Settings → Plugins and click the “Install” button for Hop DocuSign.
 
 ## Configuring Hop DocuSign
 
-1. You have to have a template created in DocuSign (we need the role and the template id)
-2. The template field labels will have to match your freeform fields handles
-3. Save the login credentials in the Settings
+1. Go to Settings > Hop DocuSign and save the login credentials
+2. Create the template or use any existing templates in DocuSign (we need the role name and the template id)
+3. Create the Freeform form
+4. The template field labels need to match with your freeform field handles so that the data can be transferred and filled in
 
 ## Using Hop DocuSign
 
-Link the freeform (on craft) with the template (on DocuSign) in Hop Docusign. This will generate a signing url for the user to complete the signing and return back the the site when finished.
+Link the freeform (on CraftCMS) with the template (on DocuSign) with Hop Docusign. This will generate a signing url for the user to complete the signing and return back the the site when finished.
+
+1. Go to Hop DocuSign and + New Template
+2. Follow the instructions and fill out every field
+3. The template id is not too visible on the DocuSign edit screen so we suggest grabbing it from the url
+4. Now try filling out your web form! You should be taken to the signing page when you hit submit
+
+If you wish to send the user a copy of the completed document, please adjust your DocuSign settings using this reference (Embedded/Captive Signing): https://support.docusign.com/en/articles/Why-aren-t-my-signers-receiving-DocuSign-Notification-emails
 
 ## Hop DocuSign Roadmap
 
