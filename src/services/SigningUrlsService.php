@@ -21,7 +21,7 @@ use craft\db\Query;
 /**
  * @author    Hop Studios
  * @package   HopDocusign
- * @since     1.0.0
+ * @since     1.1.0
  */
 class SigningUrlsService extends Component
 {

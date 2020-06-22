@@ -37,7 +37,7 @@ use yii\base\Event;
  *
  * @author    Hop Studios
  * @package   HopDocusign
- * @since     1.0.3
+ * @since     1.1.0
  *
  * @property  HopDocusignServiceService $hopDocusignService
  */
@@ -57,7 +57,7 @@ class HopDocusign extends Plugin
     /**
      * @var string
      */
-    public $schemaVersion = '1.0.3';
+    public $schemaVersion = '1.1.0';
 
     /**
      * @var bool
@@ -234,8 +234,9 @@ class HopDocusign extends Plugin
                                     'radioGroupTabs' => array()
                                 );
 
-                                // We're going to loop through the fields now. Some of them may be used to build the recipient name or subject line
-                                $template_role_name = $template->recipient_name;
+                                // We're going to loop through the fields now. Some of them may be used to build the template information
+                                $template_role_email = $template->template_role_email;
+                                $template_role_name = $template->template_role_name;
                                 $subject_line = $template->email_subject;
 
                                 // Assigning fields into their 'tab', we're only using 4 types of field here so 4 tabs
@@ -256,6 +257,9 @@ class HopDocusign extends Plugin
                                             $value = !empty($value[0]) ? $value[0] : trim(implode(' ', $value));
                                             $emailTab->setValue($value);
                                             $data['emailTabs'][] = $emailTab;
+
+                                            // Replace if key is used to build the template role email
+                                            $template_role_email = str_replace('{' . $key . '}', $value, $template_role_email);
                                             break;
                                         case 'text':
                                             $textTab = new \DocuSign\eSign\Model\Text();
@@ -294,9 +298,7 @@ class HopDocusign extends Plugin
                                 $tabs->setEmailTabs($data['emailTabs']);
                                 $tabs->setTextTabs($data['textTabs']);
 
-                                // Setting the email and name for the template role
-                                $template_role_email = implode(',', $form->get($template->email_handle)->getValue());
-
+                                // Setting template role information
                                 $templateRole->setEmail($template_role_email);
                                 $templateRole->setName($template_role_name);
 
@@ -309,7 +311,10 @@ class HopDocusign extends Plugin
                                 if (strpos($subject_line, '{clientUserId}')) {
                                     $subject_line = str_replace('{clientUserId}', $clientUserId, $subject_line);
                                 }
-                                $envelop_definition->setEmailSubject($subject_line);
+
+                                if (!empty($subject_line)) {
+                                    $envelop_definition->setEmailSubject($subject_line);
+                                }
 
                                 // Set which template to create and which role is signing
                                 $envelop_definition->setTemplateId($template->template_id);

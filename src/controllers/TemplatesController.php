@@ -21,7 +21,7 @@ use craft\web\Response as Response;
 /**
  * @author    Hop Studios
  * @package   HopDocusign
- * @since     1.0.0
+ * @since     1.1.0
  */
 class TemplatesController extends Controller
 {
@@ -126,11 +126,11 @@ class TemplatesController extends Controller
 
         // Get the input fields
         $template->form_handle = $request->getBodyParam('form_handle');
-        $template->email_handle = $request->getBodyParam('email_handle');
-        $template->recipient_name = $request->getBodyParam('recipient_name');
-        $template->email_subject = $request->getBodyParam('email_subject');
-        $template->template_role = $request->getBodyParam('template_role');
         $template->template_id = $request->getBodyParam('template_id');
+        $template->template_role = $request->getBodyParam('template_role');
+        $template->template_role_email = $request->getBodyParam('template_role_email');
+        $template->template_role_name = $request->getBodyParam('template_role_name');
+        $template->email_subject = $request->getBodyParam('email_subject');
 
         // Save the template
         if (!$templatesService->saveTemplate($template)) {

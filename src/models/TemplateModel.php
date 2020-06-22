@@ -18,7 +18,7 @@ use craft\base\Model;
 /**
  * @author    Hop Studios
  * @package   HopDocusign
- * @since     1.0.0
+ * @since     1.1.0
  */
 class TemplateModel extends Model
 {
@@ -26,11 +26,11 @@ class TemplateModel extends Model
     // =========================================================================
     public $id;
     public $form_handle;
-    public $email_handle;
-    public $recipient_name;
-    public $email_subject;
-    public $template_role;
     public $template_id;
+    public $template_role;
+    public $template_role_email;
+    public $template_role_name;
+    public $email_subject;
 
     // Public Methods
     // =========================================================================

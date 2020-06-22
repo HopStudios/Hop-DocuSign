@@ -1,9 +1,13 @@
 # Hop DocuSign Changelog
 
-## 1.0.3 - 2020-06-19
+## 1.1.0 - 2020-06-22
 ### Updated
+- {clientUserId} for email title
+- Template Role Email dynamic generation
 - Subject line dynamic generation
-- clientUserId for email title
+- Code clean-up
+
+## 1.0.3 - 2020-06-19
 ### Removed
 - Unecessary code
 
