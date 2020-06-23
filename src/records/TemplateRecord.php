@@ -18,7 +18,7 @@ use craft\db\ActiveRecord;
 /**
  * @author    Hop Studios
  * @package   HopDocusign
- * @since     1.0.0
+ * @since     1.1.0
  */
 class TemplateRecord extends ActiveRecord
 {
@@ -52,7 +52,7 @@ class TemplateRecord extends ActiveRecord
     {
         return [
             [['form_handle'], 'unique'],
-            [['form_handle', 'email_handle', 'recipient_name', 'email_subject', 'template_role', 'template_id'], 'required'],
+            [['form_handle', 'template_id', 'template_role', 'template_role_email', 'template_role_name'], 'required'],
         ];
     }
 }

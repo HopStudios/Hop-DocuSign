@@ -21,7 +21,7 @@ use craft\db\Query;
 /**
  * @author    Hop Studios
  * @package   HopDocusign
- * @since     1.0.0
+ * @since     1.1.0
  */
 class TemplatesService extends Component
 {
@@ -72,11 +72,11 @@ class TemplatesService extends Component
         }
 
         $record->form_handle    = $template->form_handle;
-        $record->email_handle = $template->email_handle;
-        $record->recipient_name = $template->recipient_name;
+        $record->template_id   = $template->template_id;
         $record->email_subject = $template->email_subject;
         $record->template_role = $template->template_role;
-        $record->template_id   = $template->template_id;
+        $record->template_role_email = $template->template_role_email;
+        $record->template_role_name = $template->template_role_name;
 
         $record->validate();
         $template->addErrors($record->getErrors());
@@ -158,11 +158,11 @@ class TemplatesService extends Component
                 [
                     'templates.id',
                     'templates.form_handle',
-                    'templates.email_handle',
-                    'templates.recipient_name',
-                    'templates.email_subject',
-                    'templates.template_role',
                     'templates.template_id',
+                    'templates.template_role',
+                    'templates.template_role_email',
+                    'templates.template_role_name',
+                    'templates.email_subject',
                 ]
             )
             ->from(TemplateRecord::tableName() . ' templates')

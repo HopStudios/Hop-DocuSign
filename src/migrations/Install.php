@@ -19,7 +19,7 @@ use craft\db\Migration;
 /**
  * @author    Hop Studios
  * @package   HopDocusign
- * @since     1.0.0
+ * @since     1.1.0
  */
 class Install extends Migration
 {
@@ -80,11 +80,11 @@ class Install extends Migration
                 [
                     'id' => $this->primaryKey(),
                     'form_handle' => $this->string(255)->notNull()->defaultValue(''),
-                    'email_handle' => $this->string(255)->notNull()->defaultValue(''),
-                    'recipient_name' => $this->string(255)->notNull()->defaultValue(''),
-                    'email_subject' => $this->string(255)->notNull()->defaultValue(''),
-                    'template_role' => $this->string(255)->notNull()->defaultValue(''),
                     'template_id' => $this->string(255)->notNull()->defaultValue(''),
+                    'template_role' => $this->string(255)->notNull()->defaultValue(''),
+                    'template_role_email' => $this->string(255)->notNull()->defaultValue(''),
+                    'template_role_name' => $this->string(255)->notNull()->defaultValue(''),
+                    'email_subject' => $this->string(255)->notNull()->defaultValue(''),
                     'dateCreated' => $this->dateTime()->notNull(),
                     'dateUpdated' => $this->dateTime()->notNull(),
                     'uid' => $this->integer()->notNull(),

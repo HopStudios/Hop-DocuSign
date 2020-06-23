@@ -37,11 +37,11 @@
             <thead>
                 <th scope="col">{{ "ID"|t('hop-docusign') }}</th>
                 <th scope="col">{{ "Form Handle"|t('hop-docusign') }}</th>
-                <th scope="col">{{ "Email Handle"|t('hop-docusign') }}</th>
-                <th scope="col">{{ "Recipient Name"|t('hop-docusign') }}</th>
-                <th scope="col">{{ "Email Subject"|t('hop-docusign') }}</th>
-                <th scope="col">{{ "Template Role"|t('hop-docusign') }}</th>
                 <th scope="col">{{ "Template ID"|t('hop-docusign') }}</th>
+                <th scope="col">{{ "Template Role"|t('hop-docusign') }}</th>
+                <th scope="col">{{ "Template Role Email"|t('hop-docusign') }}</th>
+                <th scope="col">{{ "Template Role Name"|t('hop-docusign') }}</th>
+                <th scope="col">{{ "Email Subject"|t('hop-docusign') }}</th>
                 <td class="thin"></td>
             </thead>
             <tbody>
@@ -55,20 +55,20 @@
                             {{ template.form_handle }}
                         </a>
                     </th>
-                    <th scope="row" data-title="{{ 'Email Handle'|t('hop-docusign') }}">
-                        {{ template.email_handle }}
-                    </th>
-                    <th scope="row" data-title="{{ 'Recipient Name'|t('hop-docusign') }}">
-                        {{ template.recipient_name }}
-                    </th>
-                    <th scope="row" data-title="{{ 'Email Subject'|t('hop-docusign') }}">
-                        {{ template.email_subject }}
+                    <th scope="row" data-title="{{ 'Template ID'|t('hop-docusign') }}">
+                        {{ template.template_id }}
                     </th>
                     <th scope="row" data-title="{{ 'Template Role'|t('hop-docusign') }}">
                         {{ template.template_role }}
                     </th>
-                    <th scope="row" data-title="{{ 'Template ID'|t('hop-docusign') }}">
-                        {{ template.template_id }}
+                    <th scope="row" data-title="{{ 'Template Role Email'|t('hop-docusign') }}">
+                        {{ template.template_role_email }}
+                    </th>
+                    <th scope="row" data-title="{{ 'Template Role Name'|t('hop-docusign') }}">
+                        {{ template.template_role_name }}
+                    </th>
+                    <th scope="row" data-title="{{ 'Email Subject'|t('hop-docusign') }}">
+                        {{ template.email_subject }}
                     </th>
                     <td class="thin">
                         <div class="action-buttons">
