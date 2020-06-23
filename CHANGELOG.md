@@ -1,6 +1,6 @@
 # Hop DocuSign Changelog
 
-## 1.1.0 - 2020-06-22
+## 1.1.1 - 2020-06-22
 ### Updated
 - {clientUserId} for email title
 - Template Role Email dynamic generation
