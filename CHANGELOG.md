@@ -1,5 +1,9 @@
 # Hop DocuSign Changelog
 
+## 1.2.0 - 2020-09-04
+### Updated
+- Adding duplicated fields feature for email and text field types
+
 ## 1.1.1 - 2020-06-22
 ### Updated
 - {clientUserId} for email title

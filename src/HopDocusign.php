@@ -253,7 +253,7 @@ class HopDocusign extends Plugin
                                     switch ($field->getType()) {
                                         case 'email':
                                             $emailTab = new \DocuSign\eSign\Model\Email();
-                                            $emailTab->setTabLabel($key);
+                                            $emailTab->setTabLabel('\\*' . $key);
                                             $value = !empty($value[0]) ? $value[0] : trim(implode(' ', $value));
                                             $emailTab->setValue($value);
                                             $data['emailTabs'][] = $emailTab;
@@ -263,7 +263,7 @@ class HopDocusign extends Plugin
                                             break;
                                         case 'text':
                                             $textTab = new \DocuSign\eSign\Model\Text();
-                                            $textTab->setTabLabel($key);
+                                            $textTab->setTabLabel('\\*' . $key);
                                             $textTab->setValue($value);
                                             $data['textTabs'][] = $textTab;
 
