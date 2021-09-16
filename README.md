@@ -12,4 +12,4 @@ Hop DocuSign is an extension to enable a seamless DocuSign signing experience fo
 
 ## Documentation
 
-For documentation and additional info please refer to [https://hopstudios.com/software/hop-docusign/docs](https://hopstudios.com/software/hop-docusign/docs)
+For documentation and additional info please refer to [https://hopstudios.com/software/hop_docusign/docs](https://hopstudios.com/software/hop_docusign/docs)
